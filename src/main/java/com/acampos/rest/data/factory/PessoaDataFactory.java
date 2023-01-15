@@ -10,21 +10,25 @@ import java.text.SimpleDateFormat;
 
 public class PessoaDataFactory {
 
-    PessoaClient pessoaClient = new PessoaClient();
+    private static PessoaClient pessoaClient = new PessoaClient();
     private static SimpleDateFormat data = new SimpleDateFormat("yyyy-MM-dd");
-    private final Faker faker = new Faker();
+    private static Faker faker = new Faker();
 
-    public Pessoa pessoaValida() {
+    private PessoaDataFactory() {}
+
+    public static Pessoa pessoaValida() {
         return novaPessoa();
     }
 
-    public Pessoa pessoaDadosAtualizados(Pessoa pessoa) {
+    public static Pessoa pessoaComDadosAtualizados() {
+        Pessoa pessoa = pessoaCadastradaApi();
         pessoa.setNome(faker.name().nameWithMiddle());
         pessoa.setEmail(faker.internet().emailAddress());
+
         return pessoa;
     }
 
-    public Pessoa pessoaCadastradaApi() {
+    public static Pessoa pessoaCadastradaApi() {
         Pessoa pessoa = pessoaClient.cadastrar(pessoaValida())
                 .then()
                         .statusCode(HttpStatus.SC_OK)
@@ -34,7 +38,7 @@ public class PessoaDataFactory {
         return pessoa;
     }
 
-    private Pessoa novaPessoa() {
+    private static Pessoa novaPessoa() {
         Pessoa novaPessoa =
                 new PessoaBuilder()
                         .nome(faker.name().nameWithMiddle())

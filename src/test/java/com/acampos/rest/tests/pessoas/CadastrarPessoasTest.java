@@ -1,5 +1,6 @@
 package com.acampos.rest.tests.pessoas;
 
+import com.acampos.rest.data.factory.PessoaDataFactory;
 import com.acampos.rest.model.Pessoa;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,7 @@ public class CadastrarPessoasTest extends PessoaBase {
 
     @Test
     public void deveCadastrarPessoaComSucesso() {
-        Pessoa pessoa = pessoaDataFactory.pessoaValida();
+        Pessoa pessoa = PessoaDataFactory.pessoaValida();
 
         Pessoa pessoaCadastrada = pessoaClient.cadastrar(pessoa)
                 .then()
