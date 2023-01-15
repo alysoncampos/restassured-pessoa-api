@@ -7,6 +7,6 @@ public class PessoaData {
     public static final String GET_PESSOA_COMPLETA = String.format("%s/lista-completa", SERVICE);
     public static final String GET_PESSOA_ENDERECOS = String.format("%s/lista-com-enderecos", SERVICE);
     public static final String GET_PESSOA_CONTATOS = String.format("%s/lista-com-contatos", SERVICE);
-    public static final String DELETE_ID_PESSOA = String.format("%s/{idPessoa}", SERVICE);
+    public static final String ID_PESSOA = String.format("%s/{idPessoa}", SERVICE);
 
 }

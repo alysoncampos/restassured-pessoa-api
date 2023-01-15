@@ -1,13 +1,10 @@
-package com.acampos.rest.tests;
+package com.acampos.rest.tests.pessoas;
 
-import com.acampos.rest.data.changeless.PessoaData;
-import com.acampos.rest.utils.Auth;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.TimeUnit;
 
-import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
 public class ListarPessoasTest extends PessoaBase {

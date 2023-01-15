@@ -1,4 +1,4 @@
-package com.acampos.rest.tests;
+package com.acampos.rest.tests.pessoas;
 
 import com.acampos.rest.model.Pessoa;
 import org.apache.http.HttpStatus;

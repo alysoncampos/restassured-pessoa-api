@@ -35,13 +35,27 @@ public class PessoaClient {
         return resp;
     }
 
+    public Response atualizar(Pessoa pessoa, Integer idPessoa) {
+        Response resp =
+                given()
+                        .header("Authorization", tokenAdmin)
+                        .contentType(ContentType.JSON)
+                        .body(pessoa)
+                        .pathParam("idPessoa", idPessoa)
+                .when()
+                        .put(PessoaData.ID_PESSOA)
+                ;
+
+        return resp;
+    }
+
     public Response excluir(Integer idPessoa) {
         Response resp =
                 given()
                         .header("Authorization", tokenAdmin)
                         .pathParam("idPessoa", idPessoa)
                 .when()
-                        .delete(PessoaData.DELETE_ID_PESSOA)
+                        .delete(PessoaData.ID_PESSOA)
                 ;
 
         return resp;

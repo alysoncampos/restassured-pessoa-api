@@ -1,4 +1,4 @@
-package com.acampos.rest.tests;
+package com.acampos.rest.tests.base;
 
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
