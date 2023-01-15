@@ -14,8 +14,6 @@ public class PessoaDataFactory {
     private static SimpleDateFormat data = new SimpleDateFormat("yyyy-MM-dd");
     private static Faker faker = new Faker();
 
-    private PessoaDataFactory() {}
-
     public static Pessoa pessoaValida() {
         return novaPessoa();
     }

@@ -1,6 +1,5 @@
 package com.acampos.rest.tests.pessoas;
 
-import com.acampos.rest.data.factory.PessoaDataFactory;
 import com.acampos.rest.model.Pessoa;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Test;
@@ -11,7 +10,7 @@ public class AtualizarPessoasTest extends PessoaBase {
 
     @Test
     public void deveAtualizarPessoasComSucesso() {
-        Pessoa pessoa = PessoaDataFactory.pessoaComDadosAtualizados();
+        Pessoa pessoa = pessoaDataFactory.pessoaComDadosAtualizados();
 
         Pessoa pessoaAtualizada = pessoaClient.atualizar(pessoa, pessoa.getIdPessoa())
                 .then()

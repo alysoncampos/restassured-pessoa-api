@@ -2,19 +2,17 @@ package com.acampos.rest.client;
 
 import com.acampos.rest.data.changeless.PessoaData;
 import com.acampos.rest.model.Pessoa;
-import com.acampos.rest.utils.Auth;
-import io.restassured.http.ContentType;
+import com.acampos.rest.spec.PessoaSpecs;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.*;
 
 public class PessoaClient {
-    private static String tokenAdmin = new Auth().autenticaticaoAdm();
 
     public Response listarPessoas() {
         Response resp =
                 given()
-                        .header("Authorization", tokenAdmin)
+                        .spec(PessoaSpecs.reqSpec())
                 .when()
                         .get(PessoaData.SERVICE)
                 ;
@@ -25,8 +23,7 @@ public class PessoaClient {
     public Response cadastrar(Pessoa pessoa) {
         Response resp =
                 given()
-                        .header("Authorization", tokenAdmin)
-                        .contentType(ContentType.JSON)
+                        .spec(PessoaSpecs.reqSpec())
                         .body(pessoa)
                 .when()
                         .post(PessoaData.SERVICE)
@@ -38,8 +35,7 @@ public class PessoaClient {
     public Response atualizar(Pessoa pessoa, Integer idPessoa) {
         Response resp =
                 given()
-                        .header("Authorization", tokenAdmin)
-                        .contentType(ContentType.JSON)
+                        .spec(PessoaSpecs.reqSpec())
                         .body(pessoa)
                         .pathParam("idPessoa", idPessoa)
                 .when()
@@ -52,7 +48,7 @@ public class PessoaClient {
     public Response excluir(Integer idPessoa) {
         Response resp =
                 given()
-                        .header("Authorization", tokenAdmin)
+                        .spec(PessoaSpecs.reqSpec())
                         .pathParam("idPessoa", idPessoa)
                 .when()
                         .delete(PessoaData.ID_PESSOA)
